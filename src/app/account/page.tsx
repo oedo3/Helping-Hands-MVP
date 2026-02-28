@@ -21,7 +21,7 @@ export default function AccountPage() {
   return (
     <div>
       {/* Profile header */}
-      <div className="bg-gradient-to-br from-primary to-[#1a6fd4] px-4 pt-6 pb-8">
+      <div className="px-4 pt-6 pb-8" style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 60%, #2D8CFF 100%)" }}>
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-xl font-bold text-white">Volunteer</h1>
           <div className="flex items-center gap-2">
@@ -67,9 +67,9 @@ export default function AccountPage() {
         <div className="bg-card rounded-2xl shadow-sm border border-border/50 p-1 flex mb-4">
           <button
             onClick={() => setActiveTab("hours")}
-            className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
+            className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all ${
               activeTab === "hours"
-                ? "bg-primary text-white"
+                ? "btn-gradient text-white shadow-sm"
                 : "text-text-secondary hover:text-text-primary"
             }`}
           >
@@ -77,9 +77,9 @@ export default function AccountPage() {
           </button>
           <button
             onClick={() => setActiveTab("badges")}
-            className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
+            className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all ${
               activeTab === "badges"
-                ? "bg-primary text-white"
+                ? "btn-gradient text-white shadow-sm"
                 : "text-text-secondary hover:text-text-primary"
             }`}
           >
@@ -102,7 +102,7 @@ export default function AccountPage() {
                     </span>
                     <div className="w-full relative">
                       <div
-                        className="w-full rounded-t-lg bg-gradient-to-t from-primary to-[#5ba8ff] transition-all"
+                        className="w-full rounded-t-lg transition-all btn-gradient"
                         style={{
                           height: `${(m.hours / maxHours) * 100}px`,
                         }}

@@ -3,27 +3,43 @@
 @theme {
   --color-primary: #2D8CFF;
   --color-primary-dark: #1a6fd4;
-  --color-primary-light: #e8f2ff;
-  --color-secondary: #FF8C42;
-  --color-secondary-light: #fff3eb;
+  --color-primary-light: #EEF5FF;
+  --color-secondary: #F59E0B;
+  --color-secondary-light: #FFFBEB;
   --color-accent-purple: #6C5CE7;
   --color-accent-purple-light: #f0eeff;
   --color-success: #27AE60;
   --color-success-light: #e8f8ef;
-  --color-warning: #F39C12;
+  --color-warning: #F59E0B;
   --color-danger: #E74C3C;
-  --color-bg: #F5F7FA;
+  --color-bg: #F8F9FF;
   --color-card: #FFFFFF;
-  --color-text-primary: #1A1A2E;
-  --color-text-secondary: #6B7280;
-  --color-text-muted: #9CA3AF;
-  --color-border: #E5E7EB;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
+  --color-border: #E2E8F0;
 }
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
+}
+
+/* Blue-to-amber gradient used on primary CTA buttons */
+.btn-gradient {
+  background: linear-gradient(to right, #2D8CFF, #F59E0B);
+}
+.btn-gradient:hover {
+  opacity: 0.88;
+}
+
+/* Gradient text (for highlighted words) */
+.text-gradient {
+  background: linear-gradient(to right, #2D8CFF, #F59E0B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 ::-webkit-scrollbar {
@@ -35,6 +51,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: #CBD5E1;
   border-radius: 2px;
 }

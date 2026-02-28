@@ -15,7 +15,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-border z-50">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/95 backdrop-blur-md border-t border-border/60 z-50">
       <div className="flex items-center justify-around py-2 px-4">
         {navItems.map((item) => {
           const isActive =
@@ -25,16 +25,20 @@ export function BottomNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors ${
-                isActive
-                  ? "text-primary"
-                  : "text-text-muted hover:text-text-secondary"
+              className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-all ${
+                isActive ? "" : "text-text-muted hover:text-text-secondary"
               }`}
+              style={isActive ? { color: "#2D8CFF" } : {}}
             >
-              <Icon
-                size={22}
-                strokeWidth={isActive ? 2.5 : 2}
-              />
+              <div className={isActive ? "relative" : ""}>
+                <Icon size={22} strokeWidth={isActive ? 2.5 : 2} />
+                {isActive && (
+                  <span
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
+                    style={{ background: "linear-gradient(to right, #2D8CFF, #F59E0B)" }}
+                  />
+                )}
+              </div>
               <span className={`text-[10px] ${isActive ? "font-semibold" : "font-medium"}`}>
                 {item.label}
               </span>

@@ -29,7 +29,7 @@ export function EventCard({ event, variant = "feed" }: EventCardProps) {
   }
 
   return (
-    <div className="bg-card rounded-2xl shadow-sm border border-border/50 overflow-hidden">
+    <div className="bg-card rounded-2xl shadow-[0_2px_12px_rgba(15,23,42,0.06)] border border-border/60 overflow-hidden">
       <div className="p-4">
         <div className="flex items-start gap-3">
           <div className="w-16 h-16 rounded-xl bg-primary-light flex items-center justify-center text-3xl shrink-0">
@@ -95,7 +95,7 @@ export function EventCard({ event, variant = "feed" }: EventCardProps) {
               </button>
             </>
           ) : (
-            <button className="flex-1 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary-dark transition-colors">
+            <button className="btn-gradient flex-1 py-2.5 rounded-xl text-white text-sm font-semibold transition-opacity">
               Sign Up
             </button>
           )}

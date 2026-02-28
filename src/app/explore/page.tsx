@@ -36,7 +36,7 @@ export default function ExplorePage() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-12 py-3 rounded-xl bg-white border border-border text-sm placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
           />
-          <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+          <button className="btn-gradient absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg flex items-center justify-center">
             <SlidersHorizontal size={14} className="text-white" />
           </button>
         </div>
@@ -46,9 +46,9 @@ export default function ExplorePage() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-colors ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
                 selectedCategory === cat
-                  ? "bg-primary text-white"
+                  ? "btn-gradient text-white shadow-sm"
                   : "bg-white text-text-secondary border border-border hover:bg-gray-50"
               }`}
             >
