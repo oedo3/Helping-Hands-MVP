@@ -77,8 +77,8 @@ export function EventCard({ event, variant = "feed" }: EventCardProps) {
             </div>
             <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-primary rounded-full transition-all"
-                style={{ width: `${spotsPercent}%` }}
+                className="h-full rounded-full transition-all"
+                style={{ width: `${spotsPercent}%`, background: "linear-gradient(to right, #2D8CFF, #7C68EE)" }}
               />
             </div>
           </div>

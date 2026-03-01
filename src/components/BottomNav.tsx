@@ -15,7 +15,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/95 backdrop-blur-md border-t border-border/60 z-50">
+    <nav className="md:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-border/60 z-50">
       <div className="flex items-center justify-around py-2 px-4">
         {navItems.map((item) => {
           const isActive =
@@ -35,7 +35,7 @@ export function BottomNav() {
                 {isActive && (
                   <span
                     className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
-                    style={{ background: "linear-gradient(to right, #2D8CFF, #F59E0B)" }}
+                    style={{ background: "linear-gradient(to right, #7C68EE 0%, #C850F0 28%, #FF6060 55%, #FF8C00 80%)" }}
                   />
                 )}
               </div>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { BottomNav } from "@/components/BottomNav";
+import { Sidebar } from "@/components/Sidebar";
+import { TopBar } from "@/components/TopBar";
 
 export const metadata: Metadata = {
   title: "HelpingHands - Find Volunteer Opportunities",
@@ -21,9 +23,13 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <div className="mx-auto max-w-md min-h-screen bg-bg relative">
-          <main className="pb-20">{children}</main>
-          <BottomNav />
+        <div className="flex min-h-screen bg-bg">
+          <Sidebar />
+          <div className="flex-1 flex flex-col min-w-0">
+            <TopBar />
+            <main className="flex-1 pb-20 md:pb-0">{children}</main>
+            <BottomNav />
+          </div>
         </div>
       </body>
     </html>

@@ -20,10 +20,10 @@ export default function ExplorePage() {
   });
 
   return (
-    <div>
+    <div className="md:max-w-6xl md:mx-auto md:px-8 md:pt-6">
       <Header />
 
-      <div className="px-4 pt-4">
+      <div className="px-4 pt-4 md:px-0 md:pt-0">
         <div className="relative">
           <Search
             size={18}
@@ -41,7 +41,7 @@ export default function ExplorePage() {
           </button>
         </div>
 
-        <div className="flex gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide md:flex-wrap md:overflow-x-visible">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -58,7 +58,7 @@ export default function ExplorePage() {
         </div>
       </div>
 
-      <div className="px-4 mt-4">
+      <div className="px-4 mt-4 md:px-0">
         <div className="flex items-center gap-2 mb-3">
           <TrendingUp size={16} className="text-primary" />
           <h2 className="text-sm font-semibold text-text-primary">
@@ -66,7 +66,7 @@ export default function ExplorePage() {
           </h2>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}

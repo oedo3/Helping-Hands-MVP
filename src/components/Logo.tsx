@@ -12,7 +12,7 @@ export function Logo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
         style={{
           width: s.box,
           height: s.box,
-          background: "linear-gradient(160deg, #55CFFF 0%, #2D8CFF 55%, #1a6fd4 100%)",
+          background: "linear-gradient(160deg, #7C68EE 0%, #C850F0 30%, #FF6060 58%, #FF8C00 82%)",
           borderRadius: s.box * 0.26,
         }}
         className="flex items-center justify-center shrink-0"

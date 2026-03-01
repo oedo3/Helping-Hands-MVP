@@ -21,7 +21,7 @@ export default function AccountPage() {
   return (
     <div>
       {/* Profile header */}
-      <div className="px-4 pt-6 pb-8" style={{ background: "linear-gradient(135deg, #0F172A 0%, #1E3A8A 60%, #2D8CFF 100%)" }}>
+      <div className="px-4 pt-6 pb-8" style={{ background: "linear-gradient(135deg, #3B1FA8 0%, #7C68EE 30%, #C850F0 50%, #FF6060 70%, #FF8C00 88%)" }}>
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-xl font-bold text-white">Volunteer</h1>
           <div className="flex items-center gap-2">
@@ -62,7 +62,7 @@ export default function AccountPage() {
         </div>
       </div>
 
-      <div className="px-4 -mt-4">
+      <div className="px-4 -mt-4 md:max-w-5xl md:mx-auto md:px-8">
         {/* Tab switcher */}
         <div className="bg-card rounded-2xl shadow-sm border border-border/50 p-1 flex mb-4">
           <button

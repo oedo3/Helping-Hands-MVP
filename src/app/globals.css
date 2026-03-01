@@ -26,9 +26,9 @@ body {
   color: var(--color-text-primary);
 }
 
-/* Blue-to-amber gradient used on primary CTA buttons */
+/* Purple → magenta → coral → orange gradient */
 .btn-gradient {
-  background: linear-gradient(to right, #2D8CFF, #F59E0B);
+  background: linear-gradient(to right, #7C68EE 0%, #C850F0 28%, #FF6060 55%, #FF8C00 80%);
 }
 .btn-gradient:hover {
   opacity: 0.88;
@@ -36,7 +36,7 @@ body {
 
 /* Gradient text (for highlighted words) */
 .text-gradient {
-  background: linear-gradient(to right, #2D8CFF, #F59E0B);
+  background: linear-gradient(to right, #7C68EE 0%, #C850F0 28%, #FF6060 55%, #FF8C00 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
