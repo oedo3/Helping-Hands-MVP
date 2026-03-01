@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import { Search, Navigation, Layers } from "lucide-react";
+import { Search, Navigation, Layers, MapPin, Clock } from "lucide-react";
 import { events } from "@/lib/data";
 import { EventCard } from "@/components/EventCard";
 
@@ -19,6 +19,24 @@ const categoryColors: Record<string, string> = {
 
 export default function MapPage() {
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showResults, setShowResults] = useState(false);
+
+  const searchResults = searchQuery.trim()
+    ? events.filter(
+        (e) =>
+          e.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          e.organization.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          e.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          e.location.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : [];
+
+  function handleSelectResult(id: string) {
+    setSelectedEvent(id);
+    setSearchQuery("");
+    setShowResults(false);
+  }
 
   return (
     <div className="h-screen md:h-[calc(100vh-57px)] flex flex-col">
@@ -31,9 +49,65 @@ export default function MapPage() {
             />
             <input
               type="text"
-              placeholder="Search nearby..."
+              placeholder="Search events, categories, locations..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowResults(true);
+              }}
+              onFocus={() => setShowResults(true)}
+              onBlur={() => setTimeout(() => setShowResults(false), 150)}
               className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-bg border border-border text-sm placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
             />
+
+            {/* Search results dropdown */}
+            {showResults && searchResults.length > 0 && (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl border border-border shadow-lg overflow-hidden z-50">
+                {searchResults.map((event) => {
+                  const color = categoryColors[event.category] ?? "#2D8CFF";
+                  return (
+                    <button
+                      key={event.id}
+                      onMouseDown={() => handleSelectResult(event.id)}
+                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left border-b border-border/50 last:border-0"
+                    >
+                      <div
+                        className="w-8 h-8 rounded-lg flex items-center justify-center text-base shrink-0"
+                        style={{ backgroundColor: color + "20" }}
+                      >
+                        {event.image}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-text-primary truncate">{event.title}</p>
+                        <div className="flex items-center gap-2 text-xs text-text-muted mt-0.5">
+                          <span className="flex items-center gap-1">
+                            <MapPin size={10} />
+                            {event.distance}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock size={10} />
+                            {event.time}
+                          </span>
+                        </div>
+                      </div>
+                      <span
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0"
+                        style={{ backgroundColor: color + "20", color }}
+                      >
+                        {event.category}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* No results state */}
+            {showResults && searchQuery.trim() && searchResults.length === 0 && (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl border border-border shadow-lg px-4 py-3 z-50">
+                <p className="text-sm text-text-muted">No events match &ldquo;{searchQuery}&rdquo;</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
