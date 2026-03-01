@@ -13,9 +13,11 @@ import {
   Award,
 } from "lucide-react";
 import { badges, milestones, volunteerStats } from "@/lib/data";
+import { SettingsModal } from "@/components/SettingsModal";
 
 export default function AccountPage() {
   const [activeTab, setActiveTab] = useState<"hours" | "badges">("hours");
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const maxHours = Math.max(...volunteerStats.monthlyHours.map((m) => m.hours));
 
   return (
@@ -28,7 +30,10 @@ export default function AccountPage() {
             <button className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
               <Star size={16} className="text-white" />
             </button>
-            <button className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+            <button
+              onClick={() => setSettingsOpen(true)}
+              className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"
+            >
               <Settings size={16} className="text-white" />
             </button>
           </div>
@@ -284,6 +289,8 @@ export default function AccountPage() {
       </div>
 
       <div className="h-6" />
+
+      {settingsOpen && <SettingsModal onClose={() => setSettingsOpen(false)} />}
     </div>
   );
 }

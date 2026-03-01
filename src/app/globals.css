@@ -42,6 +42,34 @@ body {
   background-clip: text;
 }
 
+/* ── Dark mode ── */
+.dark {
+  color-scheme: dark;
+  --color-bg: #0F172A;
+  --color-card: #1E293B;
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #475569;
+  --color-border: #334155;
+  --color-primary-light: #1e3358;
+  --color-accent-purple-light: #1e1b4b;
+  --color-success-light: #0f2e1a;
+  --color-secondary-light: #2d2006;
+}
+
+/* Remap Tailwind's static white/gray tokens in dark mode */
+.dark .bg-white         { background-color: var(--color-card) !important; }
+.dark .bg-white\/90     { background-color: color-mix(in srgb, var(--color-card) 90%, transparent) !important; }
+.dark .bg-white\/95     { background-color: color-mix(in srgb, var(--color-card) 95%, transparent) !important; }
+.dark .bg-white\/20     { background-color: rgba(255,255,255,0.10) !important; }
+.dark .bg-gray-50       { background-color: #1E293B !important; }
+.dark .bg-gray-100      { background-color: #334155 !important; }
+.dark .hover\:bg-gray-50:hover  { background-color: #1E293B !important; }
+.dark .hover\:bg-gray-100:hover { background-color: #334155 !important; }
+.dark .hover\:bg-gray-200:hover { background-color: #475569 !important; }
+.dark .border-white     { border-color: var(--color-border) !important; }
+.dark .text-gray-200    { color: #94A3B8 !important; }
+
 ::-webkit-scrollbar {
   width: 4px;
 }
