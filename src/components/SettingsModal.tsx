@@ -35,7 +35,7 @@ export function SettingsModal({ onClose }: SettingsModalProps) {
           <h2 className="text-lg font-bold text-text-primary">Settings</h2>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-bg flex items-center justify-center hover:bg-gray-100 transition-colors"
+            className="w-8 h-8 rounded-full bg-bg flex items-center justify-center hover:bg-border/40 transition-colors"
           >
             <X size={16} className="text-text-secondary" />
           </button>
@@ -53,13 +53,13 @@ export function SettingsModal({ onClose }: SettingsModalProps) {
                 <button
                   key={value}
                   onClick={() => setTheme(value)}
-                  className={`flex flex-col items-center gap-2 py-4 rounded-2xl border-2 transition-all ${
+                  className={`flex flex-col items-center gap-2 py-4 rounded-xl border transition-all ${
                     isActive
-                      ? "border-transparent btn-gradient text-white shadow-md"
-                      : "border-border bg-bg text-text-secondary hover:border-primary/40"
+                      ? "border-[#7C68EE] bg-[#7C68EE]/10 text-[#7C68EE]"
+                      : "border-border bg-bg text-text-muted hover:border-[#7C68EE]/40 hover:text-text-secondary"
                   }`}
                 >
-                  <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
+                  <Icon size={18} strokeWidth={isActive ? 2.5 : 1.8} />
                   <span className="text-xs font-semibold">{label}</span>
                 </button>
               );

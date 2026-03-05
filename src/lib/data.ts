@@ -1,44 +1,5 @@
-export interface VolunteerEvent {
-  id: string;
-  title: string;
-  organization: string;
-  location: string;
-  date: string;
-  time: string;
-  spotsLeft: number;
-  totalSpots: number;
-  category: string;
-  matchPercent: number;
-  distance: string;
-  image: string;
-  description: string;
-  lat: number;
-  lng: number;
-  isSignedUp?: boolean;
-}
-
-export interface Badge {
-  id: string;
-  name: string;
-  subtitle?: string;
-  icon: string;
-  color: string;
-  earned: boolean;
-  verified: boolean;
-}
-
-export interface Milestone {
-  label: string;
-  progress: number;
-  icon: string;
-}
-
-export interface VolunteerStats {
-  totalHours: number;
-  sessions: number;
-  impactPoints: number;
-  monthlyHours: { month: string; hours: number }[];
-}
+export type { VolunteerEvent, Badge, Milestone, VolunteerStats } from "./types";
+import type { VolunteerEvent, Badge, Milestone, VolunteerStats } from "./types";
 
 export const events: VolunteerEvent[] = [
   {
@@ -46,7 +7,7 @@ export const events: VolunteerEvent[] = [
     title: "Food Bank Saturday",
     organization: "Community Cares Food",
     location: "Evansville, IN",
-    date: "2026-02-28",
+    date: "2026-03-07",
     time: "9:00 AM - 1:00 PM",
     spotsLeft: 8,
     totalSpots: 20,
@@ -54,17 +15,16 @@ export const events: VolunteerEvent[] = [
     matchPercent: 95,
     distance: "2.3 mi",
     image: "🥫",
-    description: "Help sort and distribute food to families in need at the community food bank.",
+    description: "Help sort and distribute food to families in need at the community food bank. No experience necessary — just bring your energy and a willingness to make a difference.",
     lat: 37.9716,
     lng: -87.5711,
-    isSignedUp: true,
   },
   {
     id: "2",
     title: "Park Cleanup Day",
     organization: "Green Evansville",
     location: "Evansville, IN",
-    date: "2026-03-01",
+    date: "2026-03-14",
     time: "8:00 AM - 12:00 PM",
     spotsLeft: 15,
     totalSpots: 30,
@@ -72,7 +32,7 @@ export const events: VolunteerEvent[] = [
     matchPercent: 88,
     distance: "1.1 mi",
     image: "🌳",
-    description: "Join us for a community park cleanup. Supplies provided.",
+    description: "Join us for a community park cleanup. Supplies provided. Help us keep our green spaces beautiful for everyone in the neighborhood.",
     lat: 37.9748,
     lng: -87.5580,
   },
@@ -81,7 +41,7 @@ export const events: VolunteerEvent[] = [
     title: "Habitat for Humanity",
     organization: "Habitat for Humanity",
     location: "Evansville, IN",
-    date: "2026-03-05",
+    date: "2026-03-21",
     time: "7:00 AM - 3:00 PM",
     spotsLeft: 5,
     totalSpots: 15,
@@ -89,7 +49,7 @@ export const events: VolunteerEvent[] = [
     matchPercent: 91,
     distance: "2.5 mi",
     image: "🏠",
-    description: "Help build affordable housing for families in need.",
+    description: "Help build affordable housing for families in need. Construction skills welcome but not required. Supervisors will guide all volunteers through safe practices.",
     lat: 37.9690,
     lng: -87.5550,
   },
@@ -98,7 +58,7 @@ export const events: VolunteerEvent[] = [
     title: "Animal Shelter",
     organization: "Vanderburgh Humane Society",
     location: "Evansville, IN",
-    date: "2026-03-07",
+    date: "2026-03-28",
     time: "10:00 AM - 2:00 PM",
     spotsLeft: 10,
     totalSpots: 12,
@@ -106,7 +66,7 @@ export const events: VolunteerEvent[] = [
     matchPercent: 83,
     distance: "3.0 mi",
     image: "🐕",
-    description: "Walk dogs, socialize cats, and help with shelter maintenance.",
+    description: "Walk dogs, socialize cats, and help with shelter maintenance. Your time makes a huge difference in the lives of animals waiting for their forever homes.",
     lat: 37.9820,
     lng: -87.5450,
   },
@@ -115,7 +75,7 @@ export const events: VolunteerEvent[] = [
     title: "Youth Mentoring",
     organization: "Big Brothers Big Sisters",
     location: "Evansville, IN",
-    date: "2026-03-10",
+    date: "2026-04-04",
     time: "3:00 PM - 5:00 PM",
     spotsLeft: 3,
     totalSpots: 10,
@@ -123,7 +83,7 @@ export const events: VolunteerEvent[] = [
     matchPercent: 76,
     distance: "5.6 mi",
     image: "📚",
-    description: "Mentor local youth through academic and personal development activities.",
+    description: "Mentor local youth through academic and personal development activities. Be a positive role model and help shape the future of our community's children.",
     lat: 37.9650,
     lng: -87.5800,
   },
@@ -132,7 +92,7 @@ export const events: VolunteerEvent[] = [
     title: "Senior Center Visit",
     organization: "Evansville Senior Care",
     location: "Evansville, IN",
-    date: "2026-03-12",
+    date: "2026-04-11",
     time: "1:00 PM - 4:00 PM",
     spotsLeft: 12,
     totalSpots: 20,
@@ -140,7 +100,7 @@ export const events: VolunteerEvent[] = [
     matchPercent: 80,
     distance: "4.2 mi",
     image: "🤝",
-    description: "Spend time with seniors - play games, read, or just have a chat.",
+    description: "Spend time with seniors — play games, read, or just have a chat. Your companionship makes a profound difference in the lives of our elderly community members.",
     lat: 37.9780,
     lng: -87.5620,
   },
@@ -149,7 +109,7 @@ export const events: VolunteerEvent[] = [
     title: "River Cleanup",
     organization: "Ohio River Foundation",
     location: "Evansville, IN",
-    date: "2026-03-15",
+    date: "2026-04-18",
     time: "8:00 AM - 11:00 AM",
     spotsLeft: 20,
     totalSpots: 40,
@@ -157,7 +117,7 @@ export const events: VolunteerEvent[] = [
     matchPercent: 85,
     distance: "3.8 mi",
     image: "🌊",
-    description: "Help clean up the Ohio River banks and protect local wildlife.",
+    description: "Help clean up the Ohio River banks and protect local wildlife. Gloves and bags provided. Together we can restore the natural beauty of our waterways.",
     lat: 37.9600,
     lng: -87.5900,
   },
@@ -166,7 +126,7 @@ export const events: VolunteerEvent[] = [
     title: "Literacy Workshop",
     organization: "Read to Succeed",
     location: "Evansville, IN",
-    date: "2026-03-18",
+    date: "2026-04-25",
     time: "4:00 PM - 6:00 PM",
     spotsLeft: 6,
     totalSpots: 8,
@@ -174,7 +134,7 @@ export const events: VolunteerEvent[] = [
     matchPercent: 72,
     distance: "2.1 mi",
     image: "📖",
-    description: "Help children improve their reading skills through fun activities.",
+    description: "Help children improve their reading skills through fun activities and one-on-one tutoring sessions. Make literacy accessible and enjoyable for every child.",
     lat: 37.9730,
     lng: -87.5680,
   },

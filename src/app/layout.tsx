@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { BottomNav } from "@/components/BottomNav";
-import { Sidebar } from "@/components/Sidebar";
-import { TopBar } from "@/components/TopBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { AppContextProvider } from "@/context/AppContext";
+import { ToastProvider } from "@/context/ToastContext";
 
 export const metadata: Metadata = {
   title: "HelpingHands - Find Volunteer Opportunities",
@@ -18,6 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
@@ -25,14 +26,11 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <ThemeProvider>
-          <div className="flex min-h-screen bg-bg">
-            <Sidebar />
-            <div className="flex-1 flex flex-col min-w-0">
-              <TopBar />
-              <main className="flex-1 pb-20 md:pb-0">{children}</main>
-              <BottomNav />
-            </div>
-          </div>
+          <AppContextProvider>
+            <ToastProvider>
+              {children}
+            </ToastProvider>
+          </AppContextProvider>
         </ThemeProvider>
       </body>
     </html>

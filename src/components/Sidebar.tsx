@@ -16,7 +16,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden md:flex flex-col w-60 shrink-0 sticky top-0 h-screen bg-white border-r border-border/60">
+    <aside className="hidden md:flex flex-col w-60 shrink-0 sticky top-0 h-screen bg-card border-r border-border/60">
       <div className="px-5 py-5 border-b border-border/60">
         <Logo />
       </div>
@@ -33,7 +33,7 @@ export function Sidebar() {
               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                 isActive
                   ? "btn-gradient text-white shadow-sm"
-                  : "text-text-secondary hover:text-text-primary hover:bg-gray-50"
+                  : "text-text-secondary hover:text-text-primary hover:bg-border/30"
               }`}
             >
               <Icon size={18} strokeWidth={isActive ? 2.5 : 2} />

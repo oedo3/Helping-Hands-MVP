@@ -1,19 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, CircleMarker, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { VolunteerEvent } from "@/lib/data";
-
-const categoryColors: Record<string, string> = {
-  "Food & Hunger": "#E74C3C",
-  Environment: "#27AE60",
-  Housing: "#FF8C42",
-  Animals: "#2D8CFF",
-  Education: "#6C5CE7",
-  "Elderly Care": "#F39C12",
-};
+import type { VolunteerEvent } from "@/lib/types";
+import { categoryColors } from "@/lib/constants";
 
 function makePinIcon(color: string, selected: boolean) {
   const size = selected ? 38 : 30;
@@ -45,13 +37,24 @@ function RecenterOnSelect({ event }: { event: VolunteerEvent | null }) {
   return null;
 }
 
+function RecenterOnUser({ location }: { location: [number, number] | null }) {
+  const map = useMap();
+  useEffect(() => {
+    if (location) {
+      map.flyTo(location, 14, { animate: true, duration: 1 });
+    }
+  }, [location, map]);
+  return null;
+}
+
 interface MapViewProps {
   events: VolunteerEvent[];
   selectedId: string | null;
   onSelect: (id: string | null) => void;
+  userLocation?: [number, number] | null;
 }
 
-export default function MapView({ events, selectedId, onSelect }: MapViewProps) {
+export default function MapView({ events, selectedId, onSelect, userLocation }: MapViewProps) {
   const center: [number, number] = [37.9716, -87.5711];
   const selectedEvent = events.find((e) => e.id === selectedId) ?? null;
 
@@ -69,9 +72,20 @@ export default function MapView({ events, selectedId, onSelect }: MapViewProps) 
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         noWrap={true}
+        className="map-tiles"
       />
 
       <RecenterOnSelect event={selectedEvent} />
+      <RecenterOnUser location={userLocation ?? null} />
+
+      {/* User location dot */}
+      {userLocation && (
+        <CircleMarker
+          center={userLocation}
+          radius={8}
+          pathOptions={{ fillColor: "#2D8CFF", fillOpacity: 1, color: "white", weight: 2 }}
+        />
+      )}
 
       {events.map((event) => {
         const color = categoryColors[event.category] ?? "#2D8CFF";
